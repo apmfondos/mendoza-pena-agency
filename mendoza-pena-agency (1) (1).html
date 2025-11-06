@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mendoza & Peña Agency — Únete</title>
+  <meta name="description" content="Carrera financiera con licencias estatales y federales en Seguros, Inversiones y Mortgage.">
+  <style>
+    :root{
+      --dark:#07101f;
+      --primary:#0A2E6E; /* azul intenso */
+      --primary-2:#0D3C8C; /* azul secundario */
+      --accent:#C6A645;    /* dorado elegante */
+      --light:#F7F9FF;
+      --text:#FFFFFF;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:
+      radial-gradient(1200px 600px at 10% 0%, var(--primary-2) 0%, var(--dark) 55%),
+      linear-gradient(180deg, var(--dark) 0%, #0A1530 40%, var(--primary) 100%);
+      color:var(--text); font-family: system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:1120px; margin:0 auto; padding:0 16px}
+    header{position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px);
+      background: rgba(10,46,110,0.35); border-bottom:1px solid rgba(255,255,255,0.10); z-index:20}
+    nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:10px; align-items:center}
+    .brand-b{width:36px; height:36px; border-radius:10px; background: linear-gradient(135deg, var(--accent), #e9d79a)}
+    .brand-t{font-weight:800}
+    .menu{display:none; gap:18px; font-size:14px}
+    .menu a{color:#fff; text-decoration:none; opacity:.9}
+    .menu a:hover{opacity:1}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 18px; border-radius:999px; border:2px solid var(--accent); background:transparent; color:#fff; text-decoration:none; font-weight:600}
+    .btn:hover{background:#fff; color:#000}
+    .btn-solid{border:none; background:var(--accent); color:#000}
+    .btn-solid:hover{filter:brightness(0.95)}
+    @media (min-width:768px){ .menu{display:flex} }
+    .hero{padding:56px 0 18px}
+    .badge{display:inline-block; padding:6px 12px; border-radius:999px; border:1px solid var(--accent); color:var(--accent); font-size:12px; font-weight:700; letter-spacing:.02em; background:rgba(0,0,0,.15)}
+    h1{font-size:36px; line-height:1.1; margin:14px 0 8px}
+    .by{opacity:.9; font-style:italic; margin-top:2px}
+    p.lead{opacity:.9; max-width:720px; font-size:15px; line-height:1.65}
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .hero-bullets{display:flex; gap:22px; font-size:13px; opacity:.85; margin-top:16px; flex-wrap:wrap}
+    .grid{display:grid; gap:16px}
+    @media (min-width:940px){ .grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:1fr 1fr 1fr} .hero-grid{grid-template-columns:1.15fr .85fr} }
+    .card{background:rgba(14,37,82,0.45); border:1px solid rgba(255,255,255,0.10); border-radius:18px; overflow:hidden}
+    .card .inner{padding:18px}
+    h2{font-size:24px; margin:0}
+    .sec-head{display:flex; gap:12px; align-items:center; margin-bottom:14px}
+    .divider{height:1px; width:100%; background:linear-gradient(90deg, transparent, var(--accent), transparent); margin:26px auto; opacity:.85}
+    ul.clean{list-style:none; padding:0; margin:0}
+    ul.clean li{display:flex; gap:10px; align-items:flex-start; margin:8px 0; font-size:14px}
+    .dot{width:18px; height:18px; border-radius:50%; border:2px solid var(--accent); margin-top:2px}
+    .table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px; border:1px solid rgba(255,255,255,0.10)}
+    .table th, .table td{padding:12px 14px; text-align:left; font-size:14px}
+    .table thead{background:rgba(255,255,255,0.06)}
+    .table tbody tr:nth-child(even){background:rgba(255,255,255,0.04)}
+    footer{border-top:1px solid rgba(255,255,255,0.1); padding:26px 0 40px; font-size:12px; opacity:.85; background:
+      radial-gradient(800px 200px at 80% 0%, #0D3C8C 0%, transparent 60%)}
+    section{scroll-margin-top:80px}
+    .photo-wrap{position:relative; border-radius:16px; overflow:hidden; min-height:260px; background:linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.02))}
+    .photo-wrap img{display:block; width:100%; height:100%; object-fit:cover}
+    .photo-tools{position:absolute; inset:auto 8px 8px auto; display:flex; gap:6px}
+    .photo-tools button{border:none; border-radius:999px; padding:8px 12px; font-weight:700; cursor:pointer; background:var(--accent)}
+    .pill{display:inline-flex; gap:6px; align-items:center; font-size:12px; padding:6px 10px; border-radius:999px; background:rgba(10,46,110,.25); border:1px solid rgba(255,255,255,.18)}
+    .contact-row{display:flex; flex-wrap:wrap; gap:10px; align-items:center; font-size:13px; opacity:.9; margin-top:10px}
+    .contact-row a{color:#fff}
+    .map-link{font-weight:700; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,.6)}
+    .note{font-size:12px; opacity:.8}
+    /* Golden line footer strip */
+    .gold-strip{margin:38px auto 0; padding:18px 0; text-align:center; font-weight:800; letter-spacing:.02em;
+      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+      color:var(--accent); border-top:1px solid rgba(255,255,255,0.12)}
+    .gold-strip .line{display:inline-block; padding:6px 14px; border-radius:999px; border:1px solid var(--accent);}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <div class="brand-b"></div>
+          <div class="brand-t"><span id="brand-agencia">Mendoza & Peña Agency</span> <span class="by">— by Luis Mendoza y Anmaury Peña</span></div>
+        </div>
+        <div class="menu">
+          <a href="#fases">Sistema 3 Fases</a>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#requisitos">Requisitos</a>
+          <a href="#calendario">Entrenamientos</a>
+          <a href="#aplica">Aplicar</a>
+        </div>
+        <a id="cta-whatsapp" class="btn" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="wrap hero">
+      <div class="grid hero-grid" style="gap:18px">
+        <div>
+          <span class="badge">Carrera financiera • Licencias estatales y federales</span>
+          <h1>Únete a <span style="color:var(--accent)">Mendoza & Peña Agency</span></h1>
+          <p class="by">Luis Mendoza y Anmaury Peña</p>
+          <p class="lead">Carrera financiera con licencias estatales y federales en Seguros, Inversiones y Mortgage.</p>
+          <div class="hero-cta">
+            <a class="btn btn-solid" href="#aplica">Aplicar ahora</a>
+            <a class="btn" href="#fases">Ver sistema 3 fases</a>
+          </div>
+          <div class="hero-bullets">
+            <div>✅ Capacitación incluida</div>
+            <div>⏱️ Horarios flexibles</div>
+            <div>👥 Comunidad y soporte</div>
+          </div>
+          <div class="contact-row">
+            <span class="pill">📍 2211 Old Norcross, Lawrenceville, GA</span>
+            <a class="map-link" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/2211+Old+Norcross+Rd,+Lawrenceville,+GA+30044">Ver en Google Maps</a>
+            <span class="pill">📞 +1 407 369 0380</span>
+            <a class="map-link" href="mailto:apmfondos@gmail.com">apmfondos@gmail.com</a>
+          </div>
+        </div>
+        <div>
+          <div class="photo-wrap" id="photo-box">
+            <img id="hero-photo" alt="Foto de portada" src="" style="display:none" />
+            <div class="photo-tools">
+              <input id="file-input" type="file" accept="image/*" style="display:none">
+              <button id="btn-upload">Subir foto</button>
+              <button id="btn-remove" style="display:none">Quitar</button>
+            </div>
+          </div>
+          <div class="note">Tip: Sube una foto profesional (horizontal) contigo o tu equipo para aumentar la confianza.</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- QUE OBTIENES / TESTIMONIOS -->
+    <section class="wrap">
+      <div class="grid grid-2">
+        <div class="card"><div class="inner">
+          <h2>Qué obtienes</h2>
+          <ul class="clean" style="margin-top:10px">
+            <li><span class="dot"></span><div><b>Plan de estudio</b> — Guía para aprobar SIE / licencia estatal.</div></li>
+            <li><span class="dot"></span><div><b>Producción acelerada</b> — Cierra tus primeros casos con mentoría.</div></li>
+            <li><span class="dot"></span><div><b>Crecimiento</b> — Sistema para crear tu propio equipo.</div></li>
+            <li><span class="dot"></span><div><b>Entrenamientos</b> — Sesiones semanales en vivo + recursos.</div></li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h2>Resultados reales</h2>
+          <table class="table" style="margin-top:10px">
+            <thead><tr><th>Socio</th><th>Logro</th></tr></thead>
+            <tbody>
+              <tr><td>María P.</td><td>Aprobó licencia en 30 días y cerró casos el mismo mes.</td></tr>
+              <tr><td>Luis M.</td><td>Formó su propio equipo con mentoría.</td></tr>
+              <tr><td>Daniela R.</td><td>Aplicó el sistema y consiguió resultados constantes.</td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 3 FASES -->
+    <section id="fases" class="wrap">
+      <div class="sec-head">
+        <span class="badge">Sistema 3 Fases</span><h2>Estudio • Producción • Crecimiento</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">1) Estudio y Licencias</h3>
+          <ul class="clean">
+            <li><span class="dot"></span><div>Plan de 30 días con quizzes diarios</div></li>
+            <li><span class="dot"></span><div>Registro y cita — te acompañamos</div></li>
+            <li><span class="dot"></span><div>Material en español e inglés</div></li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">2) Producción (Ganar dinero)</h3>
+          <ul class="clean">
+            <li><span class="dot"></span><div>Guiones de prospección y cierres</div></li>
+            <li><span class="dot"></span><div>Acompañamiento en primeras citas</div></li>
+            <li><span class="dot"></span><div>Metas diarias: 15 llamadas, 3 cierres</div></li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">3) Crecimiento (Equipo)</h3>
+          <ul class="clean">
+            <li><span class="dot"></span><div>Sistema de bienvenida y entrenamiento</div></li>
+            <li><span class="dot"></span><div>Seguimiento semanal</div></li>
+            <li><span class="dot"></span><div>Líderes mentores y bonos de inicio</div></li>
+          </ul>
+        </div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="wrap">
+      <div class="sec-head">
+        <span class="badge">Beneficios</span><h2>¿Por qué unirte?</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><div class="inner"><b>Mentoría directa</b><div style="opacity:.9; margin-top:6px">Sesiones 1:1 y grupales para acelerar resultados.</div></div></div>
+        <div class="card"><div class="inner"><b>Material comprobado</b><div style="opacity:.9; margin-top:6px">Guías, scripts y recursos listos para usar.</div></div></div>
+        <div class="card"><div class="inner"><b>Flexibilidad</b><div style="opacity:.9; margin-top:6px">Horarios compatibles con tu vida y familia.</div></div></div>
+        <div class="card"><div class="inner"><b>Comunidad</b><div style="opacity:.9; margin-top:6px">Equipo en expansión con cultura positiva.</div></div></div>
+        <div class="card"><div class="inner"><b>Plan de carrera</b><div style="opacity:.9; margin-top:6px">Crecimiento por desempeño y liderazgo.</div></div></div>
+        <div class="card"><div class="inner"><b>Bonos de inicio</b><div style="opacity:.9; margin-top:6px">Incentivos por metas tempranas.</div></div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- REQUISITOS -->
+    <section id="requisitos" class="wrap">
+      <div class="sec-head">
+        <span class="badge">Requisitos</span><h2>Lo que necesitas para empezar</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">Documentos y básicos</h3>
+          <ul class="clean">
+            <li><span class="dot"></span><div>Mayor de 18 años (EE.UU.)</div></li>
+            <li><span class="dot"></span><div>Identificación válida y SSN/ITIN</div></li>
+            <li><span class="dot"></span><div>Antecedentes limpios (según estado)</div></li>
+            <li><span class="dot"></span><div>Laptop o iPad, internet estable</div></li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">Actitud y compromiso</h3>
+          <ul class="clean">
+            <li><span class="dot"></span><div>Asistir a entrenamientos (ver calendario)</div></li>
+            <li><span class="dot"></span><div>Metas diarias (llamadas, citas, cierres)</div></li>
+            <li><span class="dot"></span><div>Seguir el sistema y reportes</div></li>
+            <li><span class="dot"></span><div>Ganas de aprender y ayudar a familias</div></li>
+          </ul>
+        </div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CALENDARIO -->
+    <section id="calendario" class="wrap">
+      <div class="sec-head">
+        <span class="badge">Entrenamientos</span><h2>Calendario semanal</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">Sesiones en vivo</h3>
+          <ul class="clean">
+            <li><span class="dot"></span><div>Lunes, Miércoles y Viernes — 9:30–10:30 a.m. • Entrenamiento en oficina</div></li>
+            <li><span class="dot"></span><div>Martes — 7:30 p.m. • Noche de oportunidad</div></li>
+            <li><span class="dot"></span><div>Jueves — 10:00–11:00 a.m. • Mentoría 1:1</div></li>
+            <li><span class="dot"></span><div>Sábado — 10:00 a.m.–12:00 p.m. • Entrenamiento especial</div></li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">Agendar evaluación</h3>
+          <p style="opacity:.9">Sin Calendly por ahora: agenda por WhatsApp y te confirmamos.</p>
+          <a id="cta-cal" class="btn btn-solid" href="#" target="_blank" rel="noreferrer">Agendar por WhatsApp</a>
+        </div></div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- APLICAR -->
+    <section id="aplica" class="wrap">
+      <div class="sec-head">
+        <span class="badge">Aplicación</span><h2>Da el primer paso hoy</h2>
+      </div>
+      <div class="grid grid-2">
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">Formulario rápido</h3>
+          <form id="form-mailto">
+            <div style="display:grid; gap:10px">
+              <input id="f-nombre" placeholder="Nombre y Apellido" required style="padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.4); background:#fff; color:#000">
+              <input id="f-email" type="email" placeholder="Email" required style="padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.4); background:#fff; color:#000">
+              <input id="f-tel" placeholder="Teléfono" style="padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.4); background:#fff; color:#000">
+              <textarea id="f-msg" placeholder="Cuéntanos por qué quieres unirte" rows="4" style="padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.4); background:#fff; color:#000"></textarea>
+              <button class="btn btn-solid" type="submit">Enviar</button>
+            </div>
+            <p class="note">Al enviar aceptas nuestra política de privacidad y ser contactado para fines informativos.</p>
+          </form>
+        </div></div>
+        <div class="card"><div class="inner">
+          <h3 style="margin:0 0 8px">Atención directa</h3>
+          <div style="display:flex; flex-direction:column; gap:10px">
+            <a id="cta-wa2" class="btn" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a id="cta-email" class="btn" href="#" target="_blank" rel="noreferrer">Email</a>
+            <div style="opacity:.85; font-size:14px">Instagram / LinkedIn (opcional)</div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- Golden decorative line -->
+    <section class="wrap gold-strip">
+      <span class="line">── Seguros • Inversiones • Mortgage ──</span>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <div style="font-weight:800">Mendoza & Peña Agency</div>
+        <div>© <span id="y"></span> Luis Mendoza y Anmaury Peña • Todos los derechos reservados</div>
+        <div style="opacity:.85">📍 2211 Old Norcross Rd, Lawrenceville, GA 30044</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+    const msg = encodeURIComponent("Hola, vengo de la web y quiero unirme a Mendoza & Peña Agency");
+    document.getElementById('cta-whatsapp').href = "https://wa.me/14073690380?text=" + msg;
+    document.getElementById('cta-cal').href = "https://wa.me/14073690380?text=" + encodeURIComponent("Hola, quiero agendar mi evaluación (15–20 min).");
+    document.getElementById('cta-wa2').href = "https://wa.me/14073690380?text=" + msg;
+    document.getElementById('cta-email').href = "mailto:apmfondos@gmail.com?subject=" + encodeURIComponent("Quiero unirme a Mendoza & Peña Agency");
+
+    // Mailto form
+    document.getElementById("form-mailto").addEventListener("submit", (e)=>{
+      e.preventDefault();
+      const nombre = document.getElementById("f-nombre").value;
+      const mail = document.getElementById("f-email").value;
+      const tel = document.getElementById("f-tel").value;
+      const msj = document.getElementById("f-msg").value;
+      const href = "mailto:apmfondos@gmail.com?subject="
+        + encodeURIComponent("Aplicación Nuevos Socios — Mendoza & Peña Agency")
+        + "&body=" + encodeURIComponent("Nombre: " + nombre + "\nEmail: " + mail + "\nTeléfono: " + tel + "\nMensaje: " + msj);
+      window.location.href = href;
+    });
+
+    // Photo uploader with localStorage persistence
+    const fileInput = document.getElementById("file-input");
+    const btnUpload = document.getElementById("btn-upload");
+    const btnRemove = document.getElementById("btn-remove");
+    const img = document.getElementById("hero-photo");
+
+    function applyPhoto(dataUrl){
+      if(dataUrl){
+        img.src = dataUrl;
+        img.style.display = "block";
+        btnRemove.style.display = "inline-block";
+      } else {
+        img.removeAttribute("src");
+        img.style.display = "none";
+        btnRemove.style.display = "none";
+      }
+    }
+
+    try {
+      const saved = localStorage.getItem("mpa_hero_photo");
+      if(saved) applyPhoto(saved);
+    } catch(e){}
+
+    btnUpload.addEventListener("click", ()=> fileInput.click());
+    fileInput.addEventListener("change", (e)=>{
+      const file = e.target.files?.[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const dataUrl = reader.result;
+        applyPhoto(dataUrl);
+        try { localStorage.setItem("mpa_hero_photo", dataUrl); } catch(e){}
+      };
+      reader.readAsDataURL(file);
+    });
+    btnRemove.addEventListener("click", ()=>{
+      applyPhoto(null);
+      localStorage.removeItem("mpa_hero_photo");
+      fileInput.value = "";
+    });
+  </script>
+</body>
+</html>
